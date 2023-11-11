@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"
 	"log"
@@ -51,76 +50,6 @@ func UserHandlerGetAll(ctx *fiber.Ctx) error {
 		"data":    userData,
 	})
 }
-
-// CREATE A USER/REGISTER
-func UserHandlerCreate(ctx *fiber.Ctx) error {
-	user := new(request.UserCreateRequest)
-	if err := ctx.BodyParser(user); err != nil {
-		return err
-	}
-
-	// Check if the email already exists in the database
-	var existingUser entity.User
-	result := database.DB.Where("email = ?", user.Email).First(&existingUser)
-	if result.RowsAffected > 0 {
-		return ctx.Status(400).JSON(fiber.Map{
-			"message": "Email already exists",
-		})
-	}
-
-	validate := validator.New()
-	errValidate := validate.Struct(user)
-
-	if errValidate != nil {
-		return ctx.Status(400).JSON(fiber.Map{
-			"message": "failed to store data",
-			"error":   errValidate,
-		})
-	}
-
-	newUser := entity.User{
-		Name:         user.Name,
-		Email:        user.Email,
-		Height:       user.Height,
-		Weight:       user.Weight,
-		PasswordHash: hashPassword(user.PasswordHash),
-	}
-
-	errCreateUser := database.DB.Create(&newUser).Error
-	if errCreateUser != nil {
-		return ctx.Status(400).JSON(fiber.Map{
-			"message": "failed to store data",
-			"error":   errCreateUser,
-		})
-	}
-
-	return ctx.JSON(fiber.Map{
-		"message": "User successfully created",
-		"name":    user.Name,
-		"email":   user.Email,
-		"height":  user.Height,
-		"weight":  user.Weight,
-	})
-}
-
-//func UserHandlerLogin(ctx *fiber.Ctx) error {
-//	user := new(request.UserLoginRequest)
-//	if err := ctx.BodyParser(user); err != nil {
-//		return err
-//	}
-//
-//	validate := validator.New()
-//	errValidate := validate.Struct(user)
-//
-//	if errValidate != nil {
-//		return ctx.Status(400).JSON(fiber.Map{
-//			"message": "failed to store data",
-//			"error":   errValidate,
-//		})
-//	}
-//
-//	return nil
-//}
 
 // GETTING A SPECIFIC USER
 func UserHandlerGetSpecific(ctx *fiber.Ctx) error {

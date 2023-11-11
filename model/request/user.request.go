@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type UserCreateRequest struct {
 	Name         string `json:"name" validate:"required"`
-	Email        string `json:"email" validate:"required"`
+	Email        string `json:"email" validate:"required,email"`
 	Height       int32  `json:"height" validate:"required"`
 	Weight       int32  `json:"weight" validate:"required"`
 	PasswordHash string `json:"password_hash" validate:"required"`
