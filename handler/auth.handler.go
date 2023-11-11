@@ -3,6 +3,7 @@ package handler
 import (
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
+	"golang.org/x/crypto/bcrypt"
 	"rest-api-go/database"
 	"rest-api-go/model/entity"
 	"rest-api-go/model/request"
@@ -27,7 +28,7 @@ func UserHandlerCreate(ctx *fiber.Ctx) error {
 
 	var existingUser entity.User
 	result := database.DB.Where("email = ?", user.Email).First(&existingUser)
-	if result.RowsAffected > 0 || result.Error != nil {
+	if result.RowsAffected > 0 {
 		return ctx.Status(400).JSON(fiber.Map{
 			"message": "Email already exists",
 		})
@@ -58,6 +59,7 @@ func UserHandlerCreate(ctx *fiber.Ctx) error {
 	})
 }
 
+// LOGIN
 func UserHandlerLogin(ctx *fiber.Ctx) error {
 	loginRequest := new(request.UserLoginRequest)
 	if err := ctx.BodyParser(loginRequest); err != nil {
@@ -72,12 +74,21 @@ func UserHandlerLogin(ctx *fiber.Ctx) error {
 			"error":   errValidate.Error(),
 		})
 	}
-	//var passwordHashed = hashPassword(loginRequest.PasswordHash)
+	//VALIDATING USER'S EMAIL AND PASSWORD
 	var user entity.User
 	err := database.DB.First(&user, "email = ?", loginRequest.Email).Error
 	if err != nil {
 		return ctx.Status(404).JSON(fiber.Map{
-			"message": "user not found",
+			"message": "wrong email/password",
+		})
+	}
+
+	//VALIDATING USER'S PASSWORD
+	storedHash := []byte(user.PasswordHash)
+	errPass := bcrypt.CompareHashAndPassword(storedHash, []byte(loginRequest.PasswordHash))
+	if errPass != nil {
+		return ctx.Status(404).JSON(fiber.Map{
+			"message": "wrong email/password",
 		})
 	}
 
