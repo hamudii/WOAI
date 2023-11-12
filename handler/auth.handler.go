@@ -1,12 +1,14 @@
 package handler
 
 import (
+	"github.com/dgrijalva/jwt-go"
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"
 	"rest-api-go/database"
 	"rest-api-go/model/entity"
 	"rest-api-go/model/request"
+	"rest-api-go/utils"
 )
 
 // CREATE A USER/REGISTER
@@ -70,8 +72,7 @@ func UserHandlerLogin(ctx *fiber.Ctx) error {
 	errValidate := validate.Struct(loginRequest)
 	if errValidate != nil {
 		return ctx.Status(400).JSON(fiber.Map{
-			"message": "failed",
-			"error":   errValidate.Error(),
+			"message": "please input valid data",
 		})
 	}
 	//VALIDATING USER'S EMAIL AND PASSWORD
@@ -92,7 +93,21 @@ func UserHandlerLogin(ctx *fiber.Ctx) error {
 		})
 	}
 
+	//GENERATE JWT
+
+	claims := jwt.MapClaims{}
+	claims["id"] = user.ID
+	claims["name"] = user.Name
+	claims["email"] = user.Email
+
+	token, errGenerateToken := utils.GenerateToken(&claims)
+	if errGenerateToken != nil {
+		return ctx.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			"message": "unauthorized",
+		})
+	}
+
 	return ctx.JSON(fiber.Map{
-		"token": "thisissecret",
+		"token": token,
 	})
 }
