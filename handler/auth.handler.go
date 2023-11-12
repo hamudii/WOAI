@@ -109,5 +109,8 @@ func UserHandlerLogin(ctx *fiber.Ctx) error {
 
 	return ctx.JSON(fiber.Map{
 		"token": token,
+		"id":    user.ID,
+		"email": user.Email,
+		"name":  user.Name,
 	})
 }
