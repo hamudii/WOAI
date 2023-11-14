@@ -4,8 +4,10 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
+	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"
 	"rest-api-go/database"
+	"rest-api-go/middleware"
 	"rest-api-go/model/entity"
 	"rest-api-go/model/request"
 	"rest-api-go/utils"
@@ -53,7 +55,7 @@ func UserHandlerCreate(ctx *fiber.Ctx) error {
 	}
 
 	return ctx.JSON(fiber.Map{
-		"message": "User successfully created",
+		"message": "user successfully created",
 		"name":    user.Name,
 		"email":   user.Email,
 		"height":  user.Height,
@@ -94,11 +96,13 @@ func UserHandlerLogin(ctx *fiber.Ctx) error {
 	}
 
 	//GENERATE JWT
+	uniqueID := uuid.New().String()
 
 	claims := jwt.MapClaims{}
 	claims["id"] = user.ID
 	claims["name"] = user.Name
 	claims["email"] = user.Email
+	claims["unique_id"] = uniqueID
 
 	token, errGenerateToken := utils.GenerateToken(&claims)
 	if errGenerateToken != nil {
@@ -112,5 +116,17 @@ func UserHandlerLogin(ctx *fiber.Ctx) error {
 		"id":    user.ID,
 		"email": user.Email,
 		"name":  user.Name,
+	})
+}
+
+func LogoutHandler(ctx *fiber.Ctx) error {
+	// Extract the token from the request headers
+	token := ctx.Get("x-token") // Assuming the token is in the Authorization header
+
+	// Add the token to the blacklist
+	middleware.AddToBlacklist(token)
+
+	return ctx.JSON(fiber.Map{
+		"message": "Logout successful",
 	})
 }
