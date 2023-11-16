@@ -1,5 +1,7 @@
 package request
 
+import "gorm.io/gorm"
+
 type ActivityCreateRequest struct {
 	UserId      uint   `json:"user_id" validate:"required"`
 	Type        string `json:"type" validate:"required"`
@@ -8,4 +10,12 @@ type ActivityCreateRequest struct {
 	Incorrect   int32  `json:"incorrect" validate:"required"`
 	Duration    int32  `json:"duration" validate:"required"`
 	Description string `json:"description" validate:"required"`
+}
+
+type ActivityUpdateRequest struct {
+	Description string `json:"description" validate:"required"`
+}
+
+type ActivityDeleteRequest struct {
+	DeletedAt gorm.DeletedAt `json:"deleted_at"`
 }

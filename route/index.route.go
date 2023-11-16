@@ -6,11 +6,6 @@ import (
 	"rest-api-go/middleware"
 )
 
-//SESSION
-//func middleware(ctx *fiber.Ctx) error {
-//
-//}
-
 func RouteInit(r *fiber.App) {
 	//r.Get("/users", handler.UserHandlerGetAll)
 
@@ -23,4 +18,6 @@ func RouteInit(r *fiber.App) {
 	r.Delete("/user/:id", middleware.Auth, handler.UserHandlerDelete)
 
 	r.Post("/activity", middleware.Auth, handler.ActivityHandlerCreate)
+	r.Delete("/activity/:id", middleware.Auth, handler.ActivityHandlerDelete)
+	r.Put("/activity/:id", middleware.Auth, handler.ActivityUpdateHandler)
 }

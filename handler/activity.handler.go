@@ -53,3 +53,63 @@ func ActivityHandlerCreate(ctx *fiber.Ctx) error {
 		"description": activity.Description,
 	})
 }
+
+func ActivityUpdateHandler(ctx *fiber.Ctx) error {
+	activityUpdate := new(request.ActivityUpdateRequest)
+	if err := ctx.BodyParser(activityUpdate); err != nil {
+		return ctx.Status(400).JSON(fiber.Map{
+			"message": "Bad Request",
+		})
+	}
+
+	activityId := ctx.Params("id")
+	var activities entity.Activity
+
+	//CHECK ACTIVITY EXISTENCE
+	err := database.DB.First(&activities, "id = ?", activityId).Error
+	if err != nil {
+		return ctx.Status(404).JSON(fiber.Map{
+			"message": "Activity not found",
+		})
+	}
+
+	if activityUpdate.Description != "" {
+		activities.Description = activityUpdate.Description
+	}
+
+	errUpdate := database.DB.Save(&activities).Error
+	if errUpdate != nil {
+		return ctx.Status(500).JSON(fiber.Map{
+			"message": "internal server error",
+		})
+	}
+
+	return ctx.JSON(fiber.Map{
+		"message": "Activity successfully updated",
+	})
+
+}
+
+func ActivityHandlerDelete(ctx *fiber.Ctx) error {
+	activityId := ctx.Params("id")
+	var activities entity.Activity
+
+	//CHECK ACTIVITY EXISTENCE
+	err := database.DB.First(&activities, "id = ?", activityId).Error
+	if err != nil {
+		return ctx.Status(404).JSON(fiber.Map{
+			"message": "Activity not found",
+		})
+	}
+
+	errDelete := database.DB.Debug().Delete(&activities).Error
+	if errDelete != nil {
+		return ctx.Status(500).JSON(fiber.Map{
+			"message": "internal server error",
+		})
+	}
+
+	return ctx.Status(200).JSON(fiber.Map{
+		"message": "Activity successfully deleted",
+	})
+}
