@@ -56,4 +56,5 @@ dependencies {
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
 
     implementation("com.github.Dimezis:BlurView:version-2.0.3")
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 }

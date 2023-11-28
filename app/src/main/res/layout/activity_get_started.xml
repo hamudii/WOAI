@@ -10,12 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/img_get_started"
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/img_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/get_started"
-            android:scaleType="centerCrop" />
+            app:iss_auto_cycle="true"
+            app:iss_no_dots="true"
+            app:iss_delay="1000"
+            app:iss_period="2000"
+            app:iss_text_align="CENTER"/>
 
     </FrameLayout>
 
