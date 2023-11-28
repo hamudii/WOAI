@@ -1,0 +1,45 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_16sdp"
+    app:cardElevation="@dimen/_4sdp"
+    android:backgroundTint="#19FFFFFF"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/_16sdp">
+
+        <com.appbroker.roundedimageview.RoundedImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:src="@drawable/ic_launcher_background"
+            app:radius="@dimen/_10sdp"/>
+
+        <View
+            android:id="@+id/stroke"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#19FFFFFF"
+            android:layout_marginVertical="@dimen/_12sdp"
+            />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10-Minute-PushUp"
+            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"/>
+        
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -54,10 +54,12 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("com.github.mmmelik:RoundedImageView:v1.0.1")
 
     implementation("com.github.Dimezis:BlurView:version-2.0.3")
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("com.intuit.sdp:sdp-android:1.1.0")
     implementation ("com.intuit.ssp:ssp-android:1.1.0")
     implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 }
