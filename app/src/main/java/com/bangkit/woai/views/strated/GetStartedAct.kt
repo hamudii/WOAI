@@ -23,8 +23,12 @@ class GetStartedAct : AppCompatActivity() {
         binding = ActivityGetStartedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Glide.with(this)
+            .load(R.drawable.get_started)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(binding.imgGetStarted)
 
-        val radius = 20f
+        val radius = 10f
         binding.blurView.setupWith(binding.container)
             .setBlurRadius(radius)
 
