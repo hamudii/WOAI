@@ -36,7 +36,7 @@ class GetStartedAct : AppCompatActivity() {
 
 
         val radius = 10f
-        binding.blurView.setupWith(binding.container)
+        binding.blurView.setupWith(binding.imgSlider)
             .setBlurRadius(radius)
 
         //intent to main act

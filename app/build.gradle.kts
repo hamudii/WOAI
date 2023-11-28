@@ -57,4 +57,7 @@ dependencies {
 
     implementation("com.github.Dimezis:BlurView:version-2.0.3")
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation ("com.intuit.sdp:sdp-android:1.1.0")
+    implementation ("com.intuit.ssp:ssp-android:1.1.0")
+    implementation("androidx.core:core-splashscreen:1.0.0")
 }
