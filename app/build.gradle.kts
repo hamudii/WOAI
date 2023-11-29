@@ -56,10 +56,23 @@ dependencies {
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.github.mmmelik:RoundedImageView:v1.0.1")
 
+    //library pendukung
     implementation("com.github.Dimezis:BlurView:version-2.0.3")
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("com.intuit.sdp:sdp-android:1.1.0")
     implementation ("com.intuit.ssp:ssp-android:1.1.0")
     implementation("androidx.core:core-splashscreen:1.0.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    //camera X
+    val cameraxVersion = "1.3.0-alpha04"
+    implementation("androidx.camera:camera-camera2:$cameraxVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
+    implementation("androidx.camera:camera-view:$cameraxVersion")
+    // If you want to additionally use the CameraX VideoCapture library
+    implementation("androidx.camera:camera-video:${cameraxVersion}")
+    // If you want to additionally add CameraX ML Kit Vision Integration
+    implementation("androidx.camera:camera-mlkit-vision:${cameraxVersion}")
+    // If you want to additionally use the CameraX Extensions library
+    implementation("androidx.camera:camera-extensions:${cameraxVersion}")
 }
