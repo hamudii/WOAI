@@ -13,6 +13,12 @@
         android:theme="@style/Theme.WOAI"
         tools:targetApi="31">
         <activity
+            android:name=".views.details_training.DetailTrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.history.HistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.strated.GetStartedAct"
             android:exported="true">
             <intent-filter>
