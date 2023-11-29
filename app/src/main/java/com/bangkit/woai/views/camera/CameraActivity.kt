@@ -3,9 +3,11 @@ package com.bangkit.woai.views.camera
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.OrientationEventListener
 import android.view.Surface
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -22,19 +24,35 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
+    private var countDownTimer: CountDownTimer? = null
+    private var remainingTimeMillis: Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.switchCamra.setOnClickListener {
+        val radius = 5f
+        binding.blurView.setupWith(binding.blurCardView)
+            .setBlurRadius(radius)
+
+        binding.btnSwitch.setOnClickListener {
             cameraSelector =
                 if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
                 else CameraSelector.DEFAULT_BACK_CAMERA
             startCamera()
         }
-        binding.captureImage.setOnClickListener {  }
+
+        binding.btnPlayPause.setOnClickListener {
+            toggleTimer()
+        }
+
+        binding.btnBack.setOnClickListener {
+            countDownTimer?.cancel()
+            closeCamera()
+        }
+
     }
+
 
     public override fun onResume() {
         super.onResume()
@@ -106,6 +124,66 @@ class CameraActivity : AppCompatActivity() {
                 imageCapture?.targetRotation = rotation
             }
         }
+    }
+
+    private fun toggleTimer() {
+        if (countDownTimer == null) {
+            // Tambahkan hitungan mundur 3 detik
+            object : CountDownTimer(3000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    // Update UI atau lakukan hal lain selama hitungan mundur
+                    val secondsRemaining = millisUntilFinished / 1000
+                    // Misalnya, tampilkan hitungan mundur pada suatu tempat di UI
+                    binding.txtCountdown.text = secondsRemaining.toString()
+
+                    binding.txtCountdown.visibility = if (secondsRemaining > 0) View.VISIBLE else View.GONE
+
+                }
+
+                override fun onFinish() {
+                    // Setelah hitungan mundur 3 detik selesai, mulai timer utama
+                    val targetTimeMillis = 60000L
+
+                    countDownTimer = object : CountDownTimer(
+                        if (remainingTimeMillis > 0) remainingTimeMillis else targetTimeMillis,
+                        1000
+                    ) {
+                        override fun onTick(millisUntilFinished: Long) {
+                            remainingTimeMillis = millisUntilFinished
+                            updateTimerText(millisUntilFinished)
+                        }
+
+                        override fun onFinish() {
+                            // Timer finished, close the camera or perform any other action
+                            closeCamera()
+                        }
+                    }.start()
+
+                    binding.btnPlayPause.setIconResource(R.drawable.baseline_pause_24)
+                }
+            }.start()
+        } else {
+            // Pause or stop the timer
+            countDownTimer?.cancel()
+            countDownTimer = null
+            binding.btnPlayPause.setIconResource(R.drawable.baseline_play_arrow_24)
+        }
+    }
+
+    private fun closeCamera() {
+        // Close the camera logic here
+        Toast.makeText(this@CameraActivity, "Camera closed", Toast.LENGTH_SHORT).show()
+        // Add your logic to close the camera or perform any other actions
+        // For example, you can call finish() to close the activity
+        finish()
+    }
+
+    private fun updateTimerText(elapsedMillis: Long) {
+        val seconds = elapsedMillis / 1000
+        val minutes = seconds / 60
+        val remainingSeconds = seconds % 60
+        val timerText = String.format("%02d:%02d", minutes, remainingSeconds)
+        binding.txtTimer.text = timerText
     }
 
     override fun onStart() {
