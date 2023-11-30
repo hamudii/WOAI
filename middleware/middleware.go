@@ -5,8 +5,6 @@ import (
 	"rest-api-go/utils"
 )
 
-var TokenBlacklist = make(map[string]struct{})
-
 func Auth(ctx *fiber.Ctx) error {
 	token := ctx.Get("x-token")
 
@@ -17,12 +15,6 @@ func Auth(ctx *fiber.Ctx) error {
 		})
 	}
 
-	if _, exists := TokenBlacklist[token]; exists {
-		return ctx.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-			"message": "Token is blacklisted. Please log in with valid credentials.",
-		})
-	}
-
 	_, err := utils.VerifyToken(token)
 	if err != nil {
 		return ctx.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
@@ -30,8 +22,4 @@ func Auth(ctx *fiber.Ctx) error {
 		})
 	}
 	return ctx.Next()
-}
-
-func AddToBlacklist(token string) {
-	TokenBlacklist[token] = struct{}{}
 }
