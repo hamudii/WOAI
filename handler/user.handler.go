@@ -170,3 +170,9 @@ func UserHandlerDelete(ctx *fiber.Ctx) error {
 		"message": "User successfully deleted",
 	})
 }
+
+func UserHandlerWelcome(ctx *fiber.Ctx) error {
+	return ctx.Status(200).JSON(fiber.Map{
+		"message": "Selamat datang di endpoint WOAI",
+	})
+}

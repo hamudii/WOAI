@@ -3,9 +3,11 @@ package handler
 import (
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
+	"log"
 	"rest-api-go/database"
 	"rest-api-go/model/entity"
 	"rest-api-go/model/request"
+	"strings"
 )
 
 func ActivityHandlerCreate(ctx *fiber.Ctx) error {
@@ -111,5 +113,38 @@ func ActivityHandlerDelete(ctx *fiber.Ctx) error {
 
 	return ctx.Status(200).JSON(fiber.Map{
 		"message": "Activity successfully deleted",
+	})
+}
+
+func ActivityHandlerGet(ctx *fiber.Ctx) error {
+	id := ctx.Params("id")
+
+	var activities []entity.Activity
+	result := database.DB.Where("user_id = ?", id).Find(&activities)
+
+	if result.Error != nil {
+		// Check if the error message contains "record not found"
+		if strings.Contains(result.Error.Error(), "record not found") {
+			return ctx.Status(404).JSON(fiber.Map{
+				"message": "There's no activity",
+			})
+		}
+
+		log.Println(result.Error)
+		return ctx.Status(500).JSON(fiber.Map{
+			"message": "An error occurred",
+		})
+	}
+
+	if len(activities) == 0 {
+		// Return a message indicating no activities found
+		return ctx.Status(fiber.StatusNotFound).JSON(fiber.Map{
+			"message": "No activities found for the given ID",
+		})
+	}
+
+	return ctx.Status(200).JSON(fiber.Map{
+		"message": "Data successfully retrieved",
+		"data":    activities,
 	})
 }
