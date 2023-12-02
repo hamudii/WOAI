@@ -14,7 +14,6 @@ import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
-import androidx.camera.core.VideoCapture
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.bangkit.woai.R
