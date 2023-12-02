@@ -47,6 +47,10 @@ class DetailTrainingActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
     }
 
     private fun openCamera() {

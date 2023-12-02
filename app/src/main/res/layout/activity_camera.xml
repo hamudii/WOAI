@@ -57,8 +57,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_2sdp"
             android:padding="@dimen/_6sdp"
@@ -119,18 +119,18 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btn_play_pause"
                             style="@style/Widget.MaterialComponents.Button.Icon"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="@dimen/_42sdp"
+                            android:layout_height="@dimen/_42sdp"
                             android:layout_margin="@dimen/_8sdp"
                             android:backgroundTint="@color/black"
                             android:insetLeft="0dp"
                             android:insetTop="0dp"
                             android:insetRight="0dp"
+                            android:gravity="center"
                             android:insetBottom="0dp"
                             app:cornerRadius="@dimen/_100sdp"
                             app:icon="@drawable/baseline_play_arrow_24"
-                            app:iconPadding="0dp"
-                            app:iconSize="24dp"
+                            app:iconSize="@dimen/_22sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 

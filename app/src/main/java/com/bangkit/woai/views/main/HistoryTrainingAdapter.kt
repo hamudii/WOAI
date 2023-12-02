@@ -12,7 +12,7 @@ import com.bangkit.woai.databinding.ItemCardHistoryBinding
 import com.bangkit.woai.databinding.ItemCardMainBinding
 import com.bumptech.glide.Glide
 
-class HistoryTrainingAdapter(private val historyTrainings: List<HistoryTraining>) :
+class HistoryTrainingAdapter(private val historyTrainings: List<HistoryTraining>, private val isMainActivity: Boolean = true) :
     RecyclerView.Adapter<HistoryTrainingAdapter.HistoryTrainingViewHolder>() {
 
     private val maxItemCount = 3
@@ -32,7 +32,8 @@ class HistoryTrainingAdapter(private val historyTrainings: List<HistoryTraining>
     }
 
     override fun getItemCount(): Int {
-        return minOf(historyTrainings.size, maxItemCount)
+        return if (isMainActivity) minOf(historyTrainings.size, maxItemCount)
+        else historyTrainings.size
     }
 
     class HistoryTrainingViewHolder(private val binding: ItemCardHistoryBinding) :

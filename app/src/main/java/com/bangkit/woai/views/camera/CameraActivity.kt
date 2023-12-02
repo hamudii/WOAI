@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
+import androidx.camera.core.VideoCapture
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.bangkit.woai.R
@@ -26,6 +27,7 @@ class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
     private var countDownTimer: CountDownTimer? = null
     private var remainingTimeMillis: Long = 0
+    private var isRecording: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
@@ -142,7 +144,7 @@ class CameraActivity : AppCompatActivity() {
 
                 override fun onFinish() {
                     // Setelah hitungan mundur 3 detik selesai, mulai timer utama
-                    val targetTimeMillis = 60000L
+                    val targetTimeMillis = 10000L
 
                     countDownTimer = object : CountDownTimer(
                         if (remainingTimeMillis > 0) remainingTimeMillis else targetTimeMillis,

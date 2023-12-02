@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding.rvMain.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        val adapterHistory = HistoryTrainingAdapter(DummyData.historyTrainings)
+        val adapterHistory = HistoryTrainingAdapter(DummyData.historyTrainings, true)
         binding.rvHistory.adapter = adapterHistory
         binding.rvHistory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 

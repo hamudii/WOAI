@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050304"
     android:padding="16dp"
+    android:background="@drawable/bg_core"
     tools:context=".views.main.MainActivity">
 
     <LinearLayout
@@ -65,7 +65,6 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#050304"
         android:fillViewport="true"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

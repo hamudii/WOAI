@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="10-MINUTE PUSH-UPS"
+                    android:text="5-MINUTE PUSH-UPS"
                     android:lineHeight="@dimen/_36sdp"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_28ssp" />
@@ -120,7 +120,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_10sdp"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="10 min"
+                            android:text="5 min"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12ssp"
                             app:layout_constraintStart_toEndOf="@id/img_time"
