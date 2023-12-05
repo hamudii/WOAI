@@ -38,9 +38,6 @@
             android:name=".views.history.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".views.profile.ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.main.MainActivity"
             android:exported="false" />
         <activity
