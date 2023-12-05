@@ -9,6 +9,7 @@ import com.bangkit.woai.data.DummyData
 import com.bangkit.woai.data.WorkoutTraining
 import com.bangkit.woai.databinding.ActivityMainBinding
 import com.bangkit.woai.views.history.HistoryActivity
+import com.bangkit.woai.views.profile.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -34,6 +35,11 @@ class MainActivity : AppCompatActivity() {
         binding.txtViewMore.setOnClickListener {
             val historyAct = Intent(this, HistoryActivity::class.java)
             startActivity(historyAct)
+        }
+
+        binding.profileImage.setOnClickListener{
+            val profileAct = Intent(this, ProfileActivity::class.java)
+            startActivity(profileAct)
         }
     }
 
