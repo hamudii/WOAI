@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">WOAI</string>
+    <string name="ed_name_hint">Enter your name</string>
+    <string name="ed_height_hint">Enter your height in centimeters</string>
+    <string name="ed_weight_hint">Enter your weight in kilograms</string>
+    <string name="ed_email_hint">Enter your email</string>
+    <string name="ed_password_hint">Enter your password</string>
+    <string name="email_address">Email Address</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password">Password</string>
+    <string name="or">Or</string>
+    <string name="register">Create Account</string>
+    <string name="full_name">Full name</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
 </resources>

@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.bangkit.woai.R
+import com.bangkit.woai.views.authentication.login.LoginActivity
 import com.bangkit.woai.views.main.MainActivity
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -41,7 +42,7 @@ class GetStartedAct : AppCompatActivity() {
 
         //intent to main act
         binding.btnStarted.setOnClickListener {
-            val mainAct = Intent(this, MainActivity::class.java)
+            val mainAct = Intent(this, LoginActivity::class.java)
             startActivity(mainAct)
         }
     }
