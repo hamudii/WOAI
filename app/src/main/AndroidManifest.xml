@@ -44,6 +44,9 @@
         <activity
             android:name=".views.history.HistoryActivity"
             android:exported="false" />
+        <activity
+            android:name=".views.training_summary.TrainingSummaryActivity"
+            android:exported="false" />
 	     <activity
             android:name=".views.profile.ProfileActivity"
             android:exported="false" />

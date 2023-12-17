@@ -13,4 +13,15 @@
     <string name="full_name">Full name</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
+    <string name="reps">%d\n reps</string>
+    <string name="cd_total_time_ic">total time ic</string>
+    <string name="cd_date_ic">date ic</string>
+    <string name="date">Date</string>
+    <string name="cd_training_ic">training icon</string>
+    <string name="types_of_workout">Types of Workout</string>
+    <string name="cd_reps_ic">repetition icon</string>
+    <string name="repetition">Repetition</string>
+    <string name="cd_time_ic">time icon</string>
+    <string name="total_time">Total Time</string>
+    <string name="workout_video">Workout Video</string>
 </resources>

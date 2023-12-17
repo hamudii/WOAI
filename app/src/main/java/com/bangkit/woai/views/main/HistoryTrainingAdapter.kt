@@ -1,16 +1,12 @@
 package com.bangkit.woai.views.main
 
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.woai.R
 import com.bangkit.woai.data.HistoryTraining
-import com.bangkit.woai.data.WorkoutTraining
 import com.bangkit.woai.databinding.ItemCardHistoryBinding
-import com.bangkit.woai.databinding.ItemCardMainBinding
-import com.bumptech.glide.Glide
+import com.bangkit.woai.views.training_summary.TrainingSummaryActivity
 
 class HistoryTrainingAdapter(private val historyTrainings: List<HistoryTraining>, private val isMainActivity: Boolean = true) :
     RecyclerView.Adapter<HistoryTrainingAdapter.HistoryTrainingViewHolder>() {
@@ -42,6 +38,12 @@ class HistoryTrainingAdapter(private val historyTrainings: List<HistoryTraining>
         fun bind(historyTraining: HistoryTraining) {
             binding.txtDate.text = historyTraining.date
             binding.txtTime.text = historyTraining.time
+
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, TrainingSummaryActivity::class.java)
+                intent.putExtra("trainingId", historyTraining.trainingId)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 }
