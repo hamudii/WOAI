@@ -1,2 +1,2 @@
 # WOAI
-Repositori ini merupakan .......
+Repositori ini merupakan repository untuk machine learning
