@@ -1,5 +1,5 @@
 # WOAI
-**What are you trying to achieve/solve?**
+**What are we trying to achieve?**
 
 With WOAI, our goal is to empower individuals who prefer working out at home by providing a comprehensive self-assistance tool. We aim to address the challenges people face when exercising independently, focusing on improving workout form and overall fitness experience. Our goal is to offer a user-friendly and effective solution that caters to the unique needs of those pursuing home-based fitness.
 
