@@ -26,8 +26,6 @@ While there have been apps, like "Workout," that provide information about the c
 6. Do the push up as much as possible in the countdown period.
 7. The push up activity will be saved in the activity history.
 
-#Step-by-Step Replication Guide
-
 # Resources
 ## Dataset
 - 
