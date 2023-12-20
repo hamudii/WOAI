@@ -37,7 +37,13 @@ While there have been apps, like "Workout," that provide information about the c
 - 
 
 ## Cloud Computing
-- 
+- Golang
+- Go Fiber
+- GORM
+- MySQL
+- Docker
+- Cloud Run
+- Cloud SQL
 
 ## Mobile Development
 - Kotlin
