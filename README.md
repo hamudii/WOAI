@@ -26,6 +26,37 @@ While there have been apps, like "Workout," that provide information about the c
 6. Do the push up as much as possible in the countdown period.
 7. The push up activity will be saved in the activity history.
 
+# Step by Step Replication Guide
+1. Identify the Problem
+We observe and realize that many people do push-ups with incorrect technique, which can potentially cause injury to the body.
+The cost of hiring a personal trainer can sometimes be out of reach for many individuals.
+
+2. Research
+Conduct thorough market research and user surveys to understand the importance of workout technique, especially correct push-up technique.
+The findings from this research became the basis for the development of WOAI, an application designed to help individuals improve their push-up technique. The aim of this application is to provide effective guidance for users in starting a healthy lifestyle, without requiring high costs for a personal trainer.
+
+3. Proposed Solutions
+Our mobile app, WOAI, offers a number of features for understanding and improving push-up movements.
+These features include real-time movement prediction, providing real-time movement feedback, automatically calculating push-ups, saving the entire push-up history, and creating a summary of each push-up session.
+
+4. Data Collection
+We collected data on upper and lower push-up movements as a dataset.
+
+5. Data Preprocessing
+
+
+6. Machine Learning Models
+
+
+7. Placement
+Our machine learning models are applied to mobile apps and TFLite so they can be accessed for real-time predictions without having to wait for a response from the API.
+
+8.API
+We developed an API using Golang to store user data such as auth, training results history, and training summary.
+
+9. Mobile App
+The mobile app is developed using Kotlin, designed to be easy to use and intuitive, offering a seamless user experience.
+
 # Resources
 ## Dataset
 - [WOAI Dataset](https://drive.google.com/drive/folders/1PRP0_vigcffdR_m2DWHSISpTnR3FjtQH?usp=sharing)
