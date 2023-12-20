@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">WOAI</string>
+    <string name="ed_name_hint">Enter your name</string>
+    <string name="ed_height_hint">Enter your height in cm</string>
+    <string name="ed_weight_hint">Enter your weight in kg</string>
+    <string name="ed_email_hint">Enter your email</string>
+    <string name="ed_password_hint">Enter your password</string>
+    <string name="email_address">Email Address</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password">Password</string>
+    <string name="or">Or</string>
+    <string name="register">Create Account</string>
+    <string name="full_name">Full name</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="reps">%d\n reps</string>
+    <string name="cd_total_time_ic">total time ic</string>
+    <string name="cd_date_ic">date ic</string>
+    <string name="date">Date</string>
+    <string name="cd_training_ic">training icon</string>
+    <string name="types_of_workout">Types of Workout</string>
+    <string name="cd_reps_ic">repetition icon</string>
+    <string name="repetition">Repetition</string>
+    <string name="cd_time_ic">time icon</string>
+    <string name="total_time">Total Time</string>
+    <string name="workout_video">Workout Video</string>
+    <string name="cd_play_video_button">Play Video Button</string>
+    <string name="ok_got_it">Okay, Got it!</string>
+    <string name="message_camera_guide">To ensure the smooth operation, please record your video with a simple background . Make sure to keep the full push-up position within the camera frame and orient the camera in landscape mode.</string>
+    <string name="tittle_camera_guide">Hey there!</string>
+</resources>

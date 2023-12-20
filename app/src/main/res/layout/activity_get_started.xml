@@ -1,0 +1,90 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/img_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:iss_auto_cycle="true"
+            app:iss_no_dots="true"
+            app:iss_delay="1000"
+            app:iss_period="2000"
+            app:iss_text_align="CENTER"/>
+
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_24sdp"
+        app:cardElevation="0dp"
+        >
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:blurOverlayColor="#1AFFFFFF">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="#00000000"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:fontFamily="@font/poppins_extrabold"
+                    android:letterSpacing="0.06"
+                    android:lineHeight="@dimen/_42ssp"
+                    android:text="PUSH\nYOURSELF\nHARDER"
+                    android:textColor="#E8FB7A"
+                    android:textSize="@dimen/_38ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:fontFamily="@font/poppins_medium"
+                    android:lineHeight="@dimen/_16ssp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="Achieve your fitness goals with our innovative fitness app."
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+                <Button
+                    android:id="@+id/btn_started"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#E8FB7A"
+                    android:fontFamily="@font/poppins_bold"
+                    android:padding="@dimen/_6sdp"
+                    android:text="GET STARTED"
+                    android:textColor="#161616"
+                    android:textSize="@dimen/_14ssp" />
+
+            </LinearLayout>
+        </eightbitlab.com.blurview.BlurView>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

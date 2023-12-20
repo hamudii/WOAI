@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.front" />
+    <uses-feature android:name="android.hardware.camera.front.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WOAI"
+        tools:targetApi="31">
+        <activity
+            android:name=".views.camera.NewCameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.strated.GetStartedAct"
+            android:exported="false" />
+        <activity
+            android:name=".views.authentication.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.authentication.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.camera.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.details_training.DetailTrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.history.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.training_summary.TrainingSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.main.SplashActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
