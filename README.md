@@ -51,7 +51,7 @@ We collected data on upper and lower push-up movements as a dataset.
 7. Placement
 Our machine learning models are applied to mobile apps and TFLite so they can be accessed for real-time predictions without having to wait for a response from the API.
 
-8.API
+8. API
 We developed an API using Golang to store user data such as auth, training results history, and training summary.
 
 9. Mobile App
