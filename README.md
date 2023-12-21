@@ -65,7 +65,11 @@ The mobile app is developed using Kotlin, designed to be easy to use and intuiti
 - [APK Link](https://drive.google.com/drive/folders/1wbY92-5pAqFwUwOD_sYDc6m7aYRvTegc)
 
 ## Machine Learning
-- 
+- Tensorflow
+- Jupyter
+- Google Colab
+- Python
+- Matplotlib
 
 ## Cloud Computing
 - Golang
