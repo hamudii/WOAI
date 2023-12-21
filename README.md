@@ -70,6 +70,9 @@ The mobile app is developed using Kotlin, designed to be easy to use and intuiti
 - Google Colab
 - Python
 - Matplotlib
+- Numpy
+- OpenCV
+- TFLite
 
 ## Cloud Computing
 - Golang
